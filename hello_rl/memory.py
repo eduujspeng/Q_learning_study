@@ -22,17 +22,19 @@ class ReplayMemory():
     
 if __name__ == '__main__':
     replay_memory = ReplayMemory()
-    t = (1, 2, 3, 4)
-    print(type(t))
-    print(len(replay_memory))
+
     replay_memory.push(1, 2, 3, 4)
     replay_memory.push(1, 3, 3, 4)
     replay_memory.push(1, 3, 3, 4)
-    print(len(replay_memory))
-    print(replay_memory.sample(1))
-    print(replay_memory.sample(2)[1])
+    replay_memory.push(2, 3, 3, 4)
+
+    print(replay_memory.sample(2))
 
     transitions = replay_memory.sample(2)
+    for t in transitions:
+        print("*"*30)
+        print(t)
+        print(t.state)
     '''
         list(zip('abcdefg', range(3), range(4)))
         [('a', 0, 0), ('b', 1, 1), ('c', 2, 2)]
